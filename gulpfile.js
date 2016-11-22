@@ -55,8 +55,8 @@ gulp.task('browserSync', ['sass', 'js'], function() {
         // Inject Local CSS at the end of HEAD
         match: /<\/head>/i,
         fn: function(req, res, match) {
-          localCssAssets = '';
-          for (i=0;i<config.localAssets.css.length;i++) {
+          var localCssAssets = '';
+          for (var i=0;i<config.localAssets.css.length;i++) {
             localCssAssets += '<link rel="stylesheet" type="text/css" href="' + config.localPath + '/' + config.localAssets.css[i] + '">';
           }
           return localCssAssets + match;
@@ -66,8 +66,8 @@ gulp.task('browserSync', ['sass', 'js'], function() {
         // Inject Local JS at the end of BODY
         match: /<\/body>/i,
         fn: function(req, res, match) {
-          localJsAssets = '';
-          for (i=0;i<config.localAssets.js.length;i++) {
+          var localJsAssets = '';
+          for (var i=0;i<config.localAssets.js.length;i++) {
             localJsAssets += '<script src="' + config.localPath + '/' + config.localAssets.js[i] + '"></script>';
           }
           return localJsAssets + match;
